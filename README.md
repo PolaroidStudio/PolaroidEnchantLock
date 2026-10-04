@@ -12,7 +12,7 @@ told why it did not work.
 
 [![PaperMC](https://img.shields.io/badge/PaperMC-1.21.7%2B%20%7C%2026.x-0288D1?style=for-the-badge&logo=minecraft&logoColor=white)](https://papermc.io)
 [![Java](https://img.shields.io/badge/Java-21-E76F00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
-[![Release](https://img.shields.io/badge/release-v1.0.0--b1-2EA043?style=for-the-badge)](https://github.com/PolaroidStudio/PolaroidEnchantLock/releases)
+[![Release](https://img.shields.io/badge/release-v1.0.0--b2-2EA043?style=for-the-badge)](https://github.com/PolaroidStudio/PolaroidEnchantLock/releases)
 <br>
 [![Tests](https://img.shields.io/badge/tests-56%20unit-2EA043?style=for-the-badge)](docs/testing.md)
 [![Live server](https://img.shields.io/badge/live%20server-not%20verified%20yet-B22222?style=for-the-badge)](docs/testing.md#not-verified-on-a-live-server)
