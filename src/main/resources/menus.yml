@@ -1,0 +1,137 @@
+# ─── PolaroidEnchantLock — menus ───────────────────────────────────────────────
+#
+# How the three menus look: titles, buttons and lore. Everything is MiniMessage. Where each
+# button sits is fixed; what it is made of and what it says is yours.
+#
+# Every item takes:
+#   material      any item material (ARROW, BARRIER, ...)
+#   name          the item's name
+#   lore          the lines under it
+#   hide-tooltip  true to show no tooltip at all (used by the filler)
+#
+# Changes here apply with /enchantlock reload.
+
+# The one sound a click makes, in every menu. Only clicks that do something play it.
+# `name` is a sound key; leave it empty ("") for silence.
+click-sound:
+  name: "minecraft:ui.button.click"
+  volume: 0.6
+  pitch: 1.0
+
+# The bottom row behind the buttons.
+fill:
+  material: BLACK_STAINED_GLASS_PANE
+  hide-tooltip: true
+
+# Navigation, the same in every menu.
+buttons:
+  back:
+    material: ARROW
+    name: "<#f2c42f>ʙᴀᴄᴋ"
+  previous:
+    material: ARROW
+    name: "<#f2c42f>ᴘʀᴇᴠɪᴏᴜs ᴘᴀɢᴇ"
+  next:
+    material: ARROW
+    name: "<#f2c42f>ɴᴇxᴛ ᴘᴀɢᴇ"
+  close:
+    material: BARRIER
+    name: "<#eb4b30>ᴄʟᴏsᴇ"
+
+# ── Main menu: the list of locked sets ──────────────────────────────────────────
+main:
+  title: "<dark_gray><b>ʟᴏᴄᴋᴇᴅ sᴇᴛs"
+
+  # One per set. It is drawn as the set's first item; `material` is only used when none of the
+  # set's items exists any more.  %name% the set's name, %pieces% how many items it locks.
+  set:
+    material: ARMOR_STAND
+    name: "<#cd80f7>%name% <#6f6085>(%pieces%)"
+    lore:
+      - "<#E9FDFB>Locked items: <#b6c1ec>%pieces%"
+      - ""
+      - "<#95d027>▸ ᴄʟɪᴄᴋ ᴛᴏ ᴏᴘᴇɴ"
+
+  create:
+    material: WRITABLE_BOOK
+    name: "<#22e8bc>ᴄʀᴇᴀᴛᴇ sᴇᴛ"
+    lore:
+      - "<#E9FDFB>Choose the items a new set locks."
+      - ""
+      - "<#95d027>▸ ᴄʟɪᴄᴋ ᴛᴏ ᴄʀᴇᴀᴛᴇ"
+
+  # Shown in the middle of the menu while there are no sets.
+  empty:
+    material: GRAY_DYE
+    name: "<#315a7a>ɴᴏ sᴇᴛs ʏᴇᴛ"
+    lore:
+      - "<#E9FDFB>Nothing is locked."
+
+# ── Set menu: the items of one set ──────────────────────────────────────────────
+set:
+  # %name% the set's name.
+  title: "<dark_gray><b>%name%"
+
+  # Added under each item's own lore.  %reference% the item's id, e.g. nexo:ruby_helmet.
+  piece:
+    lore:
+      - ""
+      - "<#f3842c> • ɪᴅ: <#E9FDFB>%reference%"
+
+  # Stands in for an item whose plugin is not installed or no longer has that id. The item is
+  # still locked by id; it just cannot be drawn.
+  missing-piece:
+    material: PAPER
+    name: "<#315a7a>%reference%"
+    lore:
+      - "<#E9FDFB>This item cannot be shown right now."
+
+  edit:
+    material: ANVIL
+    name: "<#f3842c>ᴇᴅɪᴛ ɪᴛᴇᴍs"
+    lore:
+      - "<#E9FDFB>Locked items: <#b6c1ec>%pieces%"
+      - ""
+      - "<#95d027>▸ ᴄʟɪᴄᴋ ᴛᴏ ᴇᴅɪᴛ"
+
+  delete:
+    material: LAVA_BUCKET
+    name: "<#eb4b30>ᴅᴇʟᴇᴛᴇ sᴇᴛ"
+    lore:
+      - "<#E9FDFB>Its items stop being locked."
+      - ""
+      - "<#95d027>▸ ᴄʟɪᴄᴋ ᴛᴏ ᴅᴇʟᴇᴛᴇ"
+
+  # What the delete button becomes after the first click. A second click deletes the set.
+  delete-confirm:
+    material: TNT
+    name: "<#eb4b30>ᴄᴏɴғɪʀᴍ ᴅᴇʟᴇᴛᴇ"
+    lore:
+      - "<#eb4b30>This cannot be undone."
+      - ""
+      - "<#95d027>▸ ᴄʟɪᴄᴋ ᴀɢᴀɪɴ ᴛᴏ ᴅᴇʟᴇᴛᴇ"
+
+# ── Editor: choosing the items of a set ─────────────────────────────────────────
+editor:
+  title-new: "<dark_gray><b>ɴᴇᴡ sᴇᴛ"
+  # %name% the name of the set being edited.
+  title-edit: "<dark_gray><b>%name%"
+
+  # Added under each chosen item's own lore.
+  piece:
+    lore:
+      - ""
+      - "<#f3842c> • ɪᴅ: <#E9FDFB>%reference%"
+      - ""
+      - "<#95d027>▸ ᴄʟɪᴄᴋ ᴛᴏ ʀᴇᴍᴏᴠᴇ"
+
+  # %pieces% how many items are chosen.
+  save:
+    material: EMERALD
+    name: "<#22e8bc>sᴀᴠᴇ"
+    lore:
+      - "<#E9FDFB>Chosen items: <#b6c1ec>%pieces%"
+      - "<#E9FDFB>Click an item in your inventory to add it."
+      - "<#E9FDFB>Your own items stay where they are."
+      - ""
+      - "<#95d027>▸ ᴄʟɪᴄᴋ ᴛᴏ sᴀᴠᴇ"

@@ -1,0 +1,47 @@
+name: PolaroidEnchantLock
+version: '${version}'
+main: me.juancayc.polaroidenchantlock.PolaroidEnchantLockPlugin
+description: Locks Nexo and MythicMobs item sets so their enchantments cannot be changed.
+website: https://github.com/PolaroidStudio/PolaroidEnchantLock
+
+# Minimum Paper API this plugin requires. This is a FLOOR, not a ceiling: a server whose
+# api-version is below this refuses to load the plugin, but any server at or above it
+# (including the year.release line, e.g. 26.2) loads it fine. Never set this to the newest
+# version you want to support — set it to the oldest one. 1.21.7 is where the Dialog API the
+# set-naming dialog uses first shipped.
+api-version: '1.21.7'
+
+# Every task is scheduled on the acting player's own entity scheduler and the shared state is
+# thread-safe, so the plugin is written for Folia. It has not been run on a Folia server.
+folia-supported: true
+
+# Every dependency here is OPTIONAL. The plugin enables with none of them installed; it simply
+# has nothing to lock until at least one item plugin is present.
+#
+# join-classpath MUST be true for both: the hooks reference each plugin's real API classes
+# directly (NexoHook uses com.nexomc.nexo.api.NexoItems, MythicMobsHook uses
+# io.lumine.mythic.bukkit.MythicBukkit), not through reflection. With join-classpath false
+# (paper-plugin.yml's own default) those classes are invisible to our classloader and the first
+# real use throws NoClassDefFoundError — isPluginEnabled() guards WHEN we call in, not WHETHER
+# the class can be loaded at all.
+#
+# PolaroidEnchant and PolaroidEnchanter are deliberately NOT listed: their menus are recognised
+# by class name and their commands by label, so nothing of theirs is ever linked against.
+dependencies:
+  server:
+    Nexo:
+      load: BEFORE
+      required: false
+      join-classpath: true
+    MythicMobs:
+      load: BEFORE
+      required: false
+      join-classpath: true
+
+permissions:
+  polaroidenchantlock.admin:
+    description: Open the locked-set menu with /enchantlock and create, edit or delete sets.
+    default: op
+  polaroidenchantlock.reload:
+    description: Reload the configuration, the language file and sets.yml.
+    default: op

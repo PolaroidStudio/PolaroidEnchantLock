@@ -1,0 +1,59 @@
+# ─── PolaroidEnchantLock — messages (English) ──────────────────────────────────
+#
+# Everything here is MiniMessage. Each message is either a plain line, or a section with
+# `text`, `hover` and `click` when it should react to the mouse.
+#
+# The prefix is its own key and is put in front of standalone messages by the plugin. Never
+# write <prefix> inside a message: restyle the banner once, here.
+#
+# %tokens% are replaced by the plugin. Set names are made safe before they are inserted, so a
+# name can never bring its own colours or click actions.
+
+prefix: "<b><#eb4b30>PO</#eb4b30><#f3842c>LA</#f3842c><#f2c42f>RO</#f2c42f><#95d027>ID</#95d027> <#289bd0>ENCHANTLOCK</#289bd0> <#315a7a>┇</b> "
+
+# What a player is told when a locked piece refuses to change. One message per place, so each
+# can say what was tried. Sent at most once per `messages.cooldown-milliseconds` (config.yml).
+blocked:
+  enchanting_table: "<#eb4b30>This item is locked and cannot be enchanted."
+  anvil: "<#eb4b30>This item is locked. Its enchantments cannot be changed on an anvil."
+  grindstone: "<#eb4b30>This item is locked. Its enchantments cannot be removed."
+  smithing_table: "<#eb4b30>This item is locked and cannot be modified on a smithing table."
+  # Two damaged items combined in a crafting grid would come out without enchantments.
+  crafting: "<#eb4b30>This item is locked and cannot be repaired by crafting."
+  # A locked piece clicked inside another plugin's enchanting menu.
+  menu: "<#eb4b30>This item is locked and cannot be used here."
+  # Shown to whoever ran an enchanting command on a player holding a locked piece.
+  command: "<#eb4b30>The item <#f2c42f>%player%<#eb4b30> is holding is locked. Its enchantments cannot be changed."
+
+command:
+  players_only: "<#eb4b30>Only a player can open the menu."
+  no_permission: "<#eb4b30>You don't have permission to do that."
+  reloaded: "<#95d027>Configuration reloaded. Locked sets: <#f2c42f>%sets%<#95d027>."
+
+editor:
+  not_custom: "<#eb4b30>That item is not a Nexo or MythicMobs item, so it cannot be locked."
+  already_added: "<#f2c42f>That item is already in this set."
+  empty: "<#eb4b30>Add at least one item before saving."
+
+set:
+  created: "<#95d027>Set <#f2c42f>%name%<#95d027> created with <#f2c42f>%pieces%<#95d027> locked items."
+  updated: "<#95d027>Set <#f2c42f>%name%<#95d027> now locks <#f2c42f>%pieces%<#95d027> items."
+  deleted: "<#95d027>Set <#f2c42f>%name%<#95d027> deleted. Its items are no longer locked."
+
+error:
+  save_failed: "<#eb4b30>The change could not be saved. Check the console."
+
+# The dialog that asks for a new set's name. No prefix here: these are labels inside a window.
+dialog:
+  title: "<#289bd0>ɴᴀᴍᴇ ᴛʜᴇ sᴇᴛ"
+  body: "<#E9FDFB>This set will lock <#f2c42f>%pieces%</#f2c42f> items. Up to <#f2c42f>%max%</#f2c42f> characters: letters, numbers, spaces, _ and -."
+  input_label: "<#E9FDFB>Set name"
+  save: "<#95d027>sᴀᴠᴇ"
+  cancel: "<#f2c42f>ᴄᴀɴᴄᴇʟ"
+
+# Why a name was refused. Shown inside the dialog, under its text.
+name:
+  empty: "<#eb4b30>Type a name for the set."
+  too_long: "<#eb4b30>That name is too long. The limit is %max% characters."
+  bad_characters: "<#eb4b30>Use only letters, numbers, spaces, _ and -."
+  duplicate: "<#eb4b30>A set with that name already exists."

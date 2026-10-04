@@ -1,0 +1,54 @@
+# ─── PolaroidEnchantLock ───────────────────────────────────────────────────────
+#
+# Locked sets themselves are not here: they live in sets.yml and are managed in game with
+# /enchantlock. Every text a player sees is in lang/messages_<language>.yml, and how the menus
+# look is in menus.yml.
+#
+# Changes here apply with /enchantlock reload.
+
+# The language file to use: lang/messages_<language>.yml in this folder. Only English ships with
+# the plugin. To translate, copy messages_en.yml to messages_<code>.yml, translate it and set
+# the code here; any key missing from your file falls back to English.
+language: en
+
+anvil:
+  # Whether an anvil may still REPAIR or RENAME a locked piece.
+  #   true   A locked piece can be repaired (with its material or with another piece of the same
+  #          kind) and renamed, as long as the result carries exactly the same enchantments and
+  #          nothing else about the item changed. Applying a book, or combining with a piece
+  #          that would add or raise an enchantment, stays blocked.
+  #   false  The anvil does nothing at all with a locked piece.
+  allow-repair-and-rename: true
+
+messages:
+  # The least time, in milliseconds, between two "this item is locked" messages to the same
+  # player. A player clicking a blocked result over and over is told once per this long.
+  # 0 sends the message on every blocked attempt.
+  cooldown-milliseconds: 1500
+
+sets:
+  # The longest name a set may have, in characters. Names may only contain letters, digits,
+  # spaces, underscores and hyphens. Values above 32 are treated as 32.
+  name-max-length: 24
+
+  # How long, in seconds, the Save and Cancel buttons of the naming dialog keep working after
+  # the dialog is shown. After that the dialog can still be closed with Escape, and the set
+  # being created is discarded. Values below 30 are treated as 30.
+  name-dialog-lifetime-seconds: 300
+
+# Protection inside the other Polaroid enchantment plugins. Each one is only looked for when its
+# option is true, and nothing happens if the plugin is not installed.
+hooks:
+  # PolaroidEnchant: locked pieces cannot be put into its virtual anvil (the one Bedrock players
+  # get), and /penchant enchant and /penchant remove are refused while the target holds a locked
+  # piece. Its book-on-anvil enchanting needs no option: that is the normal anvil, always covered.
+  polaroidenchant: true
+
+  # PolaroidEnchanter: clicks that would move a locked piece into its Enchanter, Disenchanter or
+  # Anvil menus are cancelled.
+  #
+  # IMPORTANT: the current PolaroidEnchanter acts on cancelled clicks, so this does NOT protect
+  # locked pieces there yet. When that happens the console says so once. Until PolaroidEnchanter
+  # is updated, keep locked pieces out of it from its own side: list them in a group with
+  # `slots: 0` under `custom:` in PolaroidEnchanter's enchantables.yml. See the README.
+  polaroidenchanter: true
