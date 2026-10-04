@@ -2,7 +2,7 @@
 
 ## Unit tests
 
-`./gradlew test` runs 52 tests, none of which needs a server:
+`./gradlew test` runs 56 tests, none of which needs a server:
 
 | Test | Covers |
 |---|---|
@@ -13,6 +13,7 @@
 | `SmallRulesTest` | Message cooldown, paging, foreign command matching |
 | `SetStoreTest` | Reading and writing `sets.yml`, including damaged files |
 | `ShippedFilesTest` | The language and menu files shipped in the jar |
+| `PolaroidEnchantApiHookTest` | Binding PolaroidEnchant's events by reflection: an event of the wrong shape is rejected when binding, an empty one is left alone |
 
 They run in CI on every push, before the jar is built.
 

@@ -14,7 +14,7 @@ told why it did not work.
 [![Java](https://img.shields.io/badge/Java-21-E76F00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
 [![Release](https://img.shields.io/badge/release-v1.0.0--b1-2EA043?style=for-the-badge)](https://github.com/PolaroidStudio/PolaroidEnchantLock/releases)
 <br>
-[![Tests](https://img.shields.io/badge/tests-52%20unit-2EA043?style=for-the-badge)](docs/testing.md)
+[![Tests](https://img.shields.io/badge/tests-56%20unit-2EA043?style=for-the-badge)](docs/testing.md)
 [![Live server](https://img.shields.io/badge/live%20server-not%20verified%20yet-B22222?style=for-the-badge)](docs/testing.md#not-verified-on-a-live-server)
 [![Items](https://img.shields.io/badge/items-Nexo%20%7C%20MythicMobs-8A63D2?style=for-the-badge)](docs/install.md)
 [![License](https://img.shields.io/badge/license-proprietary-B22222?style=for-the-badge)](LICENSE)
@@ -30,7 +30,7 @@ told why it did not work.
 ---
 
 > [!IMPORTANT]
-> **Status:** the plugin builds and its 52 unit tests pass, but it has **not been run on a live
+> **Status:** the plugin builds and its 56 unit tests pass, but it has **not been run on a live
 > server yet**. What that leaves unverified is listed in
 > [testing.md](docs/testing.md#not-verified-on-a-live-server).
 
@@ -119,7 +119,7 @@ Permissions are in [commands.md](docs/commands.md).
 
 ## 🧪 How it was checked
 
-- **52 unit tests** on the set registry, item references, name rules, the repair-or-enchant
+- **56 unit tests** on the set registry, item references, name rules, the repair-or-enchant
   decision, `sets.yml` and the shipped language and menu files.
 - **No live-server run yet.** The menus, the naming dialog, the event listeners and the Nexo,
   MythicMobs and Polaroid hooks have never been exercised in game. The checklist for that run

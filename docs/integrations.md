@@ -14,13 +14,21 @@ been checked.
 
 Neither plugin is a dependency. Their menus are recognised by the class of the inventory they
 open and their command by its name, so PolaroidEnchantLock runs the same with or without them.
-Neither exposes an API or an event another plugin can cancel, so both are guarded from the
-outside. Each hook can be switched off under `hooks:` in `config.yml`.
+Both are guarded from the outside, and PolaroidEnchant additionally through its own events.
+Each hook can be switched off under `hooks:` in `config.yml`.
 
 ### PolaroidEnchant
 
+PolaroidEnchant 2.0.0 with its developer API fires a cancellable `EnchantApplyEvent` and
+`EnchantRemoveEvent` right before it applies or removes an enchantment. PolaroidEnchantLock
+cancels them when the item is locked. The events are bound by name at runtime, so nothing is
+compiled against PolaroidEnchant; with an older version that has no such events, the console
+says so and the outside guards below are the only protection. Both run together on a newer
+version.
+
 | Path | Covered |
 |---|---|
+| Another plugin enchanting through `PolaroidEnchantAPI` | **Yes, with the developer API only.** Nobody is messaged, since there is no player to tell |
 | Its enchanted books applied on a real anvil | **Yes.** This is the normal anvil. Its custom enchantments are stored outside the vanilla enchantment list, so the anvil rule compares the whole item, not only that list |
 | Its virtual anvil for Bedrock players | **Yes.** A click that involves a locked piece is cancelled while that menu is open, and the menu skips cancelled clicks |
 | `/penchant enchant` and `/penchant remove` | **Yes**, from a player or the console: refused while the target holds a locked piece in the main hand |

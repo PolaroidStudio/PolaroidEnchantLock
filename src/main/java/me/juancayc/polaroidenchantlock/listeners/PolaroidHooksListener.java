@@ -33,8 +33,8 @@ import java.util.logging.Logger;
  * command by its label, so this class links against nothing of theirs and does nothing at all
  * on a server that has neither.
  *
- * <p>Neither plugin exposes an API or fires an event of its own, so the guard works from the
- * outside: while one of their menus is open, any click or drag that involves a locked piece —
+ * <p>This guard works from the outside and needs nothing from either plugin (PolaroidEnchant's
+ * own events, where its version has them, are handled by {@link PolaroidEnchantApiHook}): while one of their menus is open, any click or drag that involves a locked piece —
  * the item clicked, the item on the cursor, or the hotbar or off-hand item a key would swap in —
  * is cancelled at LOWEST, before their listener sees it.
  *

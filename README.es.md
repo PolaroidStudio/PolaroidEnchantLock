@@ -14,7 +14,7 @@ modificar una pieza bloqueada se le explica por qué no funcionó.
 [![Java](https://img.shields.io/badge/Java-21-E76F00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
 [![Release](https://img.shields.io/badge/release-v1.0.0--b1-2EA043?style=for-the-badge)](https://github.com/PolaroidStudio/PolaroidEnchantLock/releases)
 <br>
-[![Tests](https://img.shields.io/badge/tests-52%20unitarios-2EA043?style=for-the-badge)](docs/testing.md)
+[![Tests](https://img.shields.io/badge/tests-56%20unitarios-2EA043?style=for-the-badge)](docs/testing.md)
 [![Servidor real](https://img.shields.io/badge/servidor%20real-sin%20verificar-B22222?style=for-the-badge)](docs/testing.md#not-verified-on-a-live-server)
 [![Ítems](https://img.shields.io/badge/%C3%ADtems-Nexo%20%7C%20MythicMobs-8A63D2?style=for-the-badge)](docs/install.md)
 [![Licencia](https://img.shields.io/badge/licencia-propietaria-B22222?style=for-the-badge)](LICENSE)
@@ -30,7 +30,7 @@ modificar una pieza bloqueada se le explica por qué no funcionó.
 ---
 
 > [!IMPORTANT]
-> **Estado:** el plugin compila y sus 52 tests unitarios pasan, pero **todavía no se ha
+> **Estado:** el plugin compila y sus 56 tests unitarios pasan, pero **todavía no se ha
 > ejecutado en un servidor real**. Lo que queda sin verificar está en
 > [testing.md](docs/testing.md#not-verified-on-a-live-server).
 
@@ -126,7 +126,7 @@ Los permisos están en [commands.md](docs/commands.md).
 
 ## 🧪 Cómo se comprobó
 
-- **52 tests unitarios** sobre el registro de sets, las referencias de ítems, las reglas de
+- **56 tests unitarios** sobre el registro de sets, las referencias de ítems, las reglas de
   nombres, la decisión entre reparar y encantar, `sets.yml` y los archivos de idioma y menús
   incluidos.
 - **Sin prueba en servidor real todavía.** Los menús, el diálogo del nombre, los listeners y

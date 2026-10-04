@@ -5,6 +5,7 @@ import me.juancayc.polaroidenchantlock.config.Settings;
 import me.juancayc.polaroidenchantlock.item.ItemResolver;
 import me.juancayc.polaroidenchantlock.item.MythicMobsHook;
 import me.juancayc.polaroidenchantlock.item.NexoHook;
+import me.juancayc.polaroidenchantlock.listeners.PolaroidEnchantApiHook;
 import me.juancayc.polaroidenchantlock.listeners.PolaroidHooksListener;
 import me.juancayc.polaroidenchantlock.listeners.VanillaLockListener;
 import me.juancayc.polaroidenchantlock.lock.LockService;
@@ -56,6 +57,13 @@ public final class PolaroidEnchantLockPlugin extends JavaPlugin {
         pluginManager.registerEvents(new VanillaLockListener(locks, this::settings), this);
         pluginManager.registerEvents(new PolaroidHooksListener(locks, messages, this::settings, getLogger()), this);
         pluginManager.registerEvents(new MenuListener(menus), this);
+
+        // PolaroidEnchant's own cancellable events, when its version has them. Tried now and
+        // again when that plugin enables, since nothing forces it to load first.
+        PolaroidEnchantApiHook enchantApi = new PolaroidEnchantApiHook(this, locks::isLocked, locks::refuse,
+                () -> settings.hookPolaroidEnchant(), getLogger());
+        pluginManager.registerEvents(enchantApi, this);
+        enchantApi.bind();
 
         new EnchantLockCommand(this, menus, messages).register();
 
